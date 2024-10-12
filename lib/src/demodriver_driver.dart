@@ -5,6 +5,8 @@ import 'package:demodriver/src/timetable_context.dart';
 import 'package:lib_driver/lib_driver.dart';
 
 class DemoDriver extends DriverBase {
+	String exampleSessionToken;
+
   @override
   DriverMetadata get driverMetadata =>
       DriverMetadata(platformName: "Demo platform", supportedFeatures: [
@@ -33,4 +35,6 @@ class DemoDriver extends DriverBase {
   AttendenceContextBase? getAttendenceContext() {
     return DemoAttendenceContext();
   }
+
+  DemoDriver({required this.exampleSessionToken});
 }
