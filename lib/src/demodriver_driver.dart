@@ -4,8 +4,19 @@ import 'package:demodriver/src/notifications_context.dart';
 import 'package:demodriver/src/timetable_context.dart';
 import 'package:lib_driver/lib_driver.dart';
 
+class DemoLoginMethod extends UsernamePasswordMethod {
+  @override
+  LoginMethodMetadata get methodMetadata =>
+      LoginMethodMetadata(methodName: "Demo login method");
+
+  @override
+  Future<DriverBase> login(String username, String password) {
+    return Future.value(DemoDriver(exampleSessionToken: "$username.$password"));
+  }
+}
+
 class DemoDriver extends DriverBase {
-	String exampleSessionToken;
+  String exampleSessionToken;
 
   @override
   DriverMetadata get driverMetadata =>
